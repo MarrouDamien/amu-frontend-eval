@@ -22,7 +22,7 @@ export const loadCustomerFromApi = (id)=>{
 }
 
 export const createCustomer = (customerData)=>{
-    fetch(`${SUPABASE_URL}/customers`, {
+   return  fetch(`${SUPABASE_URL}/customers`, {
         method: "POST",
         body: JSON.stringify(customerData),
         headers: {

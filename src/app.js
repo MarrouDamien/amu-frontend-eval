@@ -17,12 +17,12 @@ const App = () => {
     return <BrowserRouter>
         <Routes>
             <Route
-                path="/:id/details"
-                element={<CustomerDetailsPage />}
-            />
-            <Route
                 path="/create"
                 element={<CustomerCreatePage />}
+            />
+            <Route
+                path="/:id"
+                element={<CustomerDetailsPage />}
             />
             <Route
                 path="/"

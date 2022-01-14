@@ -1,48 +1,46 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { createCustomer } from "../api/http";
 
-class CustomerCreateForm extends Component {
-    constructor(props){
-        super(props)
-        this.state = { fullName : "", email:""}
-        this.handleChange = this.handleChange.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
-      }
 
-      handleChange(event){
-        this.setState({
-          [event.target.name] : event.target.value
+const CustomerCreateForm = () => {
+
+    const [state, setState] = useState({ fullName: "", email: "" });
+    const navigate = useNavigate();
+
+    const handleChange = (event) => {
+        setState({
+            ...state,
+            [event.target.name]: event.target.value
         })
-      }
-
-      handleSubmit(event){
-        event.preventDefault();
-        console.log(this.state);
-        createCustomer(this.state);
     }
-    render(){
-    return <>
 
-        <form onSubmit={this.handleSubmit}>
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(state);
+        createCustomer(state).then(()=>navigate("/"));
+
+    }
+
+    return <>
+        <form id="createCustomer" onSubmit={handleSubmit}>
             <input
                 type="text"
                 name="fullName"
                 placeholder="Nom complet"
-                value={this.state.fullName}
-                onChange={this.handleChange}
+                value={state.fullName}
+                onChange={handleChange}
             />
             <input
                 type="email"
                 name="email"
                 placeholder="email"
-                value={this.state.email}
-                onChange={this.handleChange}
+                value={state.email}
+                onChange={handleChange}
             />
-            <input type="submit" />
+            <button type="submit" form="createCustomer">Enregistrer</button>
         </form>
     </>
-    }
 }
-
 export default CustomerCreateForm
