@@ -20,3 +20,15 @@ export const loadCustomerFromApi = (id)=>{
         }
     }).then((response) => response.json()).then(customer => customer[0])
 }
+
+export const createCustomer = (customerData)=>{
+    fetch(`${SUPABASE_URL}/customers`, {
+        method: "POST",
+        body: JSON.stringify(customerData),
+        headers: {
+            "Content-Type": "application/json",
+            apiKey: SUPABASE_API_KEY,
+            Prefer: "return=representation",
+        },
+    }).then((response) => response.json())
+}

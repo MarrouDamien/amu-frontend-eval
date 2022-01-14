@@ -11,6 +11,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CustomerDetailsPage from "./pages/CustomerDetailsPage";
 import CustomerListPage from "./pages/CustomerListPage";
+import CustomerCreatePage from "./pages/CustomerCreatePage";
 
 const App = () => {
     return <BrowserRouter>
@@ -18,6 +19,10 @@ const App = () => {
             <Route
                 path="/:id/details"
                 element={<CustomerDetailsPage />}
+            />
+            <Route
+                path="/create"
+                element={<CustomerCreatePage />}
             />
             <Route
                 path="/"
