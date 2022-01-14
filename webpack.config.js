@@ -12,4 +12,18 @@ module.exports = {
     filename: "app.js",
     path: path.resolve(__dirname, "dist"),
   },
+  module: {
+    // Permet d'expliciter les règles à suivre en fonction des fichiers
+    rules: [
+        {
+            // Tout fichier qui aura l'extension .js ou .jsx (aussi utilisé pour marquer les fichiers contenant du JSX)
+            test: /\.(js|jsx)$/,
+            // A l'exception du dossier node_modules
+            exclude: /node_modules/,
+            // Devra être traité via babel
+            loader: "babel-loader",
+            options: { presets: ["@babel/env"] }
+        },
+    ]
+}
 };
