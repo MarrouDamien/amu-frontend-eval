@@ -11,7 +11,6 @@ const CustomerList = (props) => {
         <tbody>
         {props.customers.map(item =>
             <tr key={item.id}>
-                <td>{item.id}</td>
                 <td><Link to={"/"+item.id}>{item.fullName}</Link></td>
                 <td>{item.email}</td>
             </tr>

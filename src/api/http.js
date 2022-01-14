@@ -32,3 +32,15 @@ export const createCustomer = (customerData)=>{
         },
     }).then((response) => response.json())
 }
+
+export const createInvoice = (invoiceData)=>{
+    return  fetch(`${SUPABASE_URL}/invoices`, {
+         method: "POST",
+         body: JSON.stringify(invoiceData),
+         headers: {
+             "Content-Type": "application/json",
+             apiKey: SUPABASE_API_KEY,
+             Prefer: "return=representation",
+         },
+     }).then((response) => response.json())
+ }
