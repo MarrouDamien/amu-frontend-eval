@@ -9,3 +9,14 @@ export const loadCustomersFromApi = ()=>{
         },
     }).then((response) => response.json())
 }
+
+export const loadCustomerFromApi = (id)=>{
+    return fetch(`${SUPABASE_URL}/customers?id=eq.${id}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            apiKey: SUPABASE_API_KEY,
+            Prefer: "return=representation",
+        }
+    }).then((response) => response.json()).then(customer => customer[0])
+}

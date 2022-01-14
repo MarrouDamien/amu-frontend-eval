@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 const CustomerList = (props) => {
-    console.log(props.customers)
     return <table>
         <thead>
             <tr>
