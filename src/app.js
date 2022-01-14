@@ -9,11 +9,16 @@ import ReactDOM from "react-dom";
 // Routes permet de décrire la configuration des routes
 // Route permet de décrire la configuration d'une route (url => composant à afficher)
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import CustomerDetailsPage from "./pages/CustomerDetailsPage";
 import CustomerListPage from "./pages/CustomerListPage";
 
 const App = () => {
     return <BrowserRouter>
         <Routes>
+            <Route
+                path="/:id/details"
+                element={<CustomerDetailsPage />}
+            />
             <Route
                 path="/"
                 element={<CustomerListPage />}
@@ -21,6 +26,5 @@ const App = () => {
         </Routes>
     </BrowserRouter>
 }
-
 // Imprime l'arbre renvoyé par App() dans l'élément <main> du DOM HTML
 ReactDOM.render(<App />, document.querySelector('main'));
