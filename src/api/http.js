@@ -43,4 +43,15 @@ export const createInvoice = (invoiceData)=>{
              Prefer: "return=representation",
          },
      }).then((response) => response.json())
- }
+}
+
+export const loadCustomerInvoicesFromApi = (id)=>{
+    return fetch(`${SUPABASE_URL}/invoices?customer_id=eq.${id}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            apiKey: SUPABASE_API_KEY,
+            Prefer: "return=representation",
+        }
+    }).then((response) => response.json())
+}

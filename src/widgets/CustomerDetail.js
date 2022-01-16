@@ -1,7 +1,21 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
+import { loadCustomerInvoicesFromApi } from "../api/http";
+import { Link, useParams } from "react-router-dom";
 const CustomerDetail = (props) => {
-    console.log(props.customer)
+
+    const [state, setState] = useState([]);
+
+    const params = useParams();
+    const id = +params.id;
+
+
+    useEffect(() => {
+        loadCustomerInvoicesFromApi(id)
+            .then((items) => {
+                setState(items);
+            });
+    }),[];
+
     return <> 
         <h1>Fiche de {props.customer.fullName}</h1>
         <h3>({props.customer.email})</h3>
@@ -9,10 +23,12 @@ const CustomerDetail = (props) => {
         <thead>
         </thead>
         <tbody>
-            <tr >
-                <td>item</td>
-                <td>item2</td>
+        {state.map(item =>
+            <tr key={item.id}>
+                <td>{item.amount}</td>
+                <td>{item.status}</td>
             </tr>
+        )}
         </tbody>
     </table>
     </>

@@ -37,5 +37,5 @@ const App = () => {
         </Routes>
     </BrowserRouter>
 }
-// Imprime l'arbre renvoyé par App() dans l'élément <main> du DOM HTML
 ReactDOM.render(<App />, document.querySelector('main'));
+///TODO changer les bouton link avec des event listener
