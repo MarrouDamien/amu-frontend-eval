@@ -17,8 +17,8 @@ const CustomerListPage = () => {
         navigate("/create");
     }
     return <>
-    <h1>Liste des clients</h1>
-        <button id="create" onClick={redirectToCustomerCreatePage}>Créer un client</button>
+    <h1 className="title" >Liste des clients</h1>
+        <button className="btn" id="create" onClick={redirectToCustomerCreatePage}>Créer un client</button>
         <CustomerList customers={state}></CustomerList>
     </>
 }

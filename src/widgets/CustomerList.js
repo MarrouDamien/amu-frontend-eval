@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 const CustomerList = (props) => {
     return <table>
-        <thead>
+        <thead className="thead"  >
             <tr>
                 <th>Nom complet</th>
                 <th>Adresse mail</th>

@@ -39,7 +39,7 @@ const InvoiceCreateForm = (props) => {
                 <option value="SENT">Envoyée</option>
                 <option value="PAID">Payée</option>
             </select>
-            <button type="submit" form="createInvoice">Enregistrer la facture</button>
+            <button className="btn" type="submit" form="createInvoice">Enregistrer la facture</button>
         </form>
     </>
 

@@ -12,9 +12,9 @@ const InvoiceCreatePage =()=>{
         navigate("/"+id);
     }
     return <>
-            <h1>Créer une facture</h1>
+            <h1 className="title" >Créer une facture</h1>
             <CreateInvoiceForm></CreateInvoiceForm>
-            <button onClick={redirectToCustomerListPage}>Retour au client</button>
+            <button className="btn" onClick={redirectToCustomerListPage}>Retour au client</button>
     </>
 }
 export default InvoiceCreatePage;

@@ -39,7 +39,7 @@ const CustomerCreateForm = () => {
                 value={state.email}
                 onChange={handleChange}
             />
-            <button type="submit" form="createCustomer">Enregistrer</button>
+            <button className="btn" type="submit" form="createCustomer">Enregistrer</button>
         </form>
     </>
 }

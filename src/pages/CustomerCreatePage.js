@@ -1,6 +1,7 @@
 import React from "react";
 import CreateCustomerForm from "../widgets/CreateCustomerForm";
 import { useNavigate } from "react-router-dom";
+import myStyle from "../style/style.css"
 const CustomerCreatePage =()=>{
     const navigate = useNavigate();
     const redirectToCustomerListPage = (event) => {
@@ -9,9 +10,9 @@ const CustomerCreatePage =()=>{
     }
 
     return <>
-            <h1>Créer un client</h1>
+            <h1 className="title" >Créer un client</h1>
             <CreateCustomerForm></CreateCustomerForm>
-            <button onClick={redirectToCustomerListPage}>Retour aux clients</button> 
+            <button className="btn"  onClick={redirectToCustomerListPage}>Retour aux clients</button> 
     </>
 }
 export default CustomerCreatePage;

@@ -9,8 +9,12 @@ const CustomerDetailsPage = () => {
     const id = +params.id;
     const navigate = useNavigate();
     useEffect(() => {
+        let isMounted = true;
         loadCustomerFromApi(id)
-            .then(customer => setCustomer(customer));
+            .then(customer => { 
+                if (isMounted) setCustomer(customer); 
+            })
+            return ()=>{isMounted=false;}
     }, [])
 
 
@@ -27,12 +31,12 @@ const CustomerDetailsPage = () => {
     return customer ? <>
 
         <CustomerDetail customer={customer}></CustomerDetail>
-        <button onClick={redirectToInvoiceCreatePage}>Créer une facture</button>
-        <button onClick={redirectToCustomerListPage}>Retour aux clients</button>
+        <button className="btn" onClick={redirectToInvoiceCreatePage}>Créer une facture</button>
+        <button className="btn" onClick={redirectToCustomerListPage}>Retour aux clients</button>
 
     </> : <>
         <p>Chargement en cours</p>
-        <button onClick={redirectToCustomerListPage}>Retour aux clients</button>
+        <button className="btn" onClick={redirectToCustomerListPage}>Retour aux clients</button>
     </>
 }
 
