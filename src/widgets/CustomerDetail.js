@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { loadCustomerInvoicesFromApi } from "../api/http";
-import { Link, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 const CustomerDetail = (props) => {
 
     const [state, setState] = useState([]);
