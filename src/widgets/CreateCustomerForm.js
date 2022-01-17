@@ -5,7 +5,6 @@ import { createCustomer } from "../api/http";
 
 
 const CustomerCreateForm = () => {
-
     const [state, setState] = useState({ fullName: "", email: "" });
     const navigate = useNavigate();
 
@@ -18,8 +17,7 @@ const CustomerCreateForm = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(state);
-        createCustomer(state).then(()=>navigate("/"));
+        createCustomer(state).then(() => navigate("/"));
 
     }
 

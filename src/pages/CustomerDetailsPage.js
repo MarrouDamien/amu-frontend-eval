@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+
 import { loadCustomerFromApi } from "../api/http";
-import { useParams } from "react-router-dom";
 import CustomerDetail from "../widgets/CustomerDetail";
-import { useNavigate } from "react-router-dom";
+
+
 const CustomerDetailsPage = () => {
     const [customer, setCustomer] = useState([]);
     const params = useParams();
     const id = +params.id;
     const navigate = useNavigate();
+
     useEffect(() => {
         let isMounted = true;
         loadCustomerFromApi(id)
@@ -16,7 +19,6 @@ const CustomerDetailsPage = () => {
             })
         return () => { isMounted = false; }
     }, [])
-
 
     const redirectToInvoiceCreatePage = (event) => {
         event.preventDefault();

@@ -1,16 +1,12 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import {  useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-import {  createInvoice } from "../api/http";
+import { createInvoice } from "../api/http";
 
 const InvoiceCreateForm = (props) => {
-
     const params = useParams();
     const id = +params.id;
-    const [state, setState] = useState({ amount: "", status: "SENT" ,customer_id:id});
-
-    
+    const [state, setState] = useState({ amount: "", status: "SENT", customer_id: id });
     const navigate = useNavigate();
 
     const handleChange = (event) => {
@@ -22,8 +18,7 @@ const InvoiceCreateForm = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(state);
-        createInvoice(state).then(() => navigate("/"+id));
+        createInvoice(state).then(() => navigate("/" + id));
     }
 
     return <>
@@ -42,7 +37,5 @@ const InvoiceCreateForm = (props) => {
             <button className="btn" type="submit" form="createInvoice">Enregistrer la facture</button>
         </form>
     </>
-
-
 }
 export default InvoiceCreateForm

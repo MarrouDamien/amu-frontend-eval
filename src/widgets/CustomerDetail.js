@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { loadCustomerInvoicesFromApi } from "../api/http";
 import { useParams } from "react-router-dom";
+
+import { loadCustomerInvoicesFromApi } from "../api/http";
+
+
 const CustomerDetail = (props) => {
-
     const [state, setState] = useState([]);
-
     const params = useParams();
     const id = +params.id;
-
 
     useEffect(() => {
         let isMounted = true;
@@ -40,7 +40,6 @@ const CustomerDetail = (props) => {
                 )}
             </tbody>
         </table>
-    </>:<p>chargement</p>
+    </> : <p>chargement</p>
 }
-
 export default CustomerDetail
