@@ -11,16 +11,16 @@ const CustomerDetailsPage = () => {
     useEffect(() => {
         let isMounted = true;
         loadCustomerFromApi(id)
-            .then(customer => { 
-                if (isMounted) setCustomer(customer); 
+            .then(customer => {
+                if (isMounted) setCustomer(customer);
             })
-            return ()=>{isMounted=false;}
+        return () => { isMounted = false; }
     }, [])
 
 
     const redirectToInvoiceCreatePage = (event) => {
         event.preventDefault();
-        navigate("/" + customer.id + "/invoices/add");
+        navigate("/" + id + "/invoices/add");
     }
 
     const redirectToCustomerListPage = (event) => {
@@ -29,11 +29,9 @@ const CustomerDetailsPage = () => {
     }
 
     return customer ? <>
-
         <CustomerDetail customer={customer}></CustomerDetail>
         <button className="btn" onClick={redirectToInvoiceCreatePage}>Créer une facture</button>
         <button className="btn" onClick={redirectToCustomerListPage}>Retour aux clients</button>
-
     </> : <>
         <p>Chargement en cours</p>
         <button className="btn" onClick={redirectToCustomerListPage}>Retour aux clients</button>

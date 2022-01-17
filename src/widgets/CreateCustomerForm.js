@@ -31,14 +31,14 @@ const CustomerCreateForm = () => {
                 placeholder="Nom complet"
                 value={state.fullName}
                 onChange={handleChange}
-            />
+            /><br></br>
             <input
                 type="email"
                 name="email"
                 placeholder="email"
                 value={state.email}
                 onChange={handleChange}
-            />
+            /><br></br>
             <button className="btn" type="submit" form="createCustomer">Enregistrer</button>
         </form>
     </>

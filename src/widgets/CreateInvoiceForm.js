@@ -34,11 +34,11 @@ const InvoiceCreateForm = (props) => {
                 placeholder="Montant de la facture"
                 value={state.amount}
                 onChange={handleChange}
-            />
+            /><br></br>
             <select name="status" onChange={handleChange}>
                 <option value="SENT">Envoyée</option>
                 <option value="PAID">Payée</option>
-            </select>
+            </select><br></br>
             <button className="btn" type="submit" form="createInvoice">Enregistrer la facture</button>
         </form>
     </>

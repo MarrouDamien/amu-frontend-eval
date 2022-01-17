@@ -20,15 +20,16 @@ const CustomerDetail = (props) => {
         return () => { isMounted = false }
     }), [];
 
-    return <>
+    return id ? <>
         <h1 className="title" >Fiche de {props.customer.fullName}</h1>
         <h5>({props.customer.email})</h5>
         <h4>Factures</h4>
         <table>
-            <thead className="thead"  >
-                <th>Montant</th>
-                <th>Statut</th>
-
+            <thead className="thead">
+                <tr>
+                    <th>Montant</th>
+                    <th>Statut</th>
+                </tr>
             </thead>
             <tbody>
                 {state.map(item =>
@@ -39,7 +40,7 @@ const CustomerDetail = (props) => {
                 )}
             </tbody>
         </table>
-    </>
+    </>:<p>chargement</p>
 }
 
 export default CustomerDetail
