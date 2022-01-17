@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
+import CustomerInvoices from "./CustomerInvoices";
 import { loadCustomerInvoicesFromApi } from "../api/http";
 
 
@@ -24,22 +25,9 @@ const CustomerDetail = (props) => {
         <h1 className="title" >Fiche de {props.customer.fullName}</h1>
         <h5>({props.customer.email})</h5>
         <h4>Factures</h4>
-        <table>
-            <thead className="thead">
-                <tr>
-                    <th>Montant</th>
-                    <th>Statut</th>
-                </tr>
-            </thead>
-            <tbody>
-                {state.map(item =>
-                    <tr key={item.id}>
-                        <td>{item.amount} €</td>
-                        <td>{item.status === "SENT" ? "Envoyée" : "Transmise"}</td>
-                    </tr>
-                )}
-            </tbody>
-        </table>
+       <CustomerInvoices invoices={state}></CustomerInvoices>
     </> : <p>chargement</p>
 }
 export default CustomerDetail
+
+
