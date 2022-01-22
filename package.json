@@ -9,8 +9,7 @@
     "test": "jest --watch",
     "dev": "webpack --mode development",
     "watch": "webpack --mode development --watch",
-    "setup": "npm install",
-    "serve": "npm run setup live-server --entry-file=./index.html"
+    "serve": "npm install & live-server --entry-file=./index.html"
   },
   "repository": {
     "type": "git",
