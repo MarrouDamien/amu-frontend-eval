@@ -8,8 +8,8 @@
     "cy:open": "cypress open",
     "test": "jest --watch",
     "dev": "webpack --mode development",
-    "watch": "webpack --mode development --watch",
-    "serve": "npm install & live-server --entry-file=./index.html"
+    "watch": "webpack --mode development --watch" ,
+    "serve": "npm install & webpack --mode development & live-server --entry-file=./index.html"
   },
   "repository": {
     "type": "git",
